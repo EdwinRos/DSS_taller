@@ -64,11 +64,26 @@ class ProcesarImagenes
         $sy = imagesy($estampa);
 
         // Fusionar la estampa con nuestra foto con una opacidad del 50%
-        imagecopymerge($im, $estampa, imagesx($im) - $sx - $margen_dcho, imagesy($im) - $sy - $margen_inf, 0, 0, imagesx($estampa), imagesy($estampa), 50);
+        imagecopymerge(
+            $im, //imagen a la que se le pondra la estampa
+            $estampa,  // estampa que se le pondra a la imagen
+            imagesx($im) - $sx - $margen_dcho, //coordenadas de destino x 
+            imagesy($im) - $sy - $margen_inf, // coordenadas de destino y
+            0, // coordenadas de la fuente x
+            0, // coordenadas de la fuente Y
+            imagesx($estampa)  , //achura
+            imagesy($estampa)   , //altura
+            50 //opacidad del 50%
+        );
 
         // Guardar la imagen en un archivo y liberar memoria
         imagepng($im, 'img_uploads/foto_estampa.png');
         imagedestroy($im);
+
+        //*destruir imagenes de referencia 
+
+        unlink('img_uploads/'.$_FILES['imagen']['name']);
+        unlink('img_uploads/'.$_FILES['estampa']['name']);
     }
 
 }
