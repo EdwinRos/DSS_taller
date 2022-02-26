@@ -1,6 +1,5 @@
 # DSS_taller
 
-en cada carpeta cada ejemplo
 
 ## Contenidos
 * [ejemplo 1](#Ejemplo-1)
