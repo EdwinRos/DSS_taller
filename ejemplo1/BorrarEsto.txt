@@ -1,2 +1,0 @@
-esto solo es para que se guarden 
-las carpetas en el git las pueden borrar cuando quieran
